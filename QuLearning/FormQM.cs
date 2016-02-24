@@ -41,7 +41,7 @@ namespace QuLearning
                     {
                         while (reader.Read())
                         {
-                            lecture.Add(new Lecture(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3), reader.GetString(4)));
+                            lecture.Add(new Lecture(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3)));
                         }
                     }
                 }
@@ -121,8 +121,7 @@ namespace QuLearning
 
 
             ShowPDF formShowPDF = new ShowPDF(dataGridView1.Rows[ht.RowIndex].Cells[3].Value.ToString(), dataGridView1.Rows[ht.RowIndex].Cells[1].Value.ToString(),Convert.ToInt32(dataGridView1.Rows[ht.RowIndex].Cells[2].Value));
-            if(!formShowPDF.IsDisposed)
-                formShowPDF.Show(this);
+            formShowPDF.Show(this);
         }
 
 
@@ -157,15 +156,13 @@ namespace QuLearning
         public int id { get; private set; }
         public string type { get; private set; }
         public string title { get; private set; }
-        public int page { get; private set; }
         public string path { get; private set; }
 
-        public Lecture(int id, string type, string title, int page, string path)
+        public Lecture(int id, string type, string title, string path)
         {
             this.id = id;
             this.type = type;
             this.title = title;
-            this.page = page;
             this.path = path;
         }
     }

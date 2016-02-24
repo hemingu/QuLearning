@@ -17,9 +17,9 @@ namespace QuLearning
             InitializeComponent();
 
             PDFReader.setCurrentPage(page);
-            //PDFReader.setShowToolbar(false);
-            //PDFReader.setPageMode("none");
+            
             //PDFReader.setShowScrollbars(true);
+            
             if (!PDFReader.LoadFile(path))
             {
                 MessageBox.Show("PDFファイルが見つかりませんでした．", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -28,6 +28,12 @@ namespace QuLearning
             }
 
             this.Text = title;
+
+            //PDFReader.setShowToolbar(false);
+            //PDFReader.setPageMode("none");
+            //PDFReader.setNamedDest("応用物理");
+            
+
 
         }
     }

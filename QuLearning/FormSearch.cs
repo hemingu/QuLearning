@@ -90,14 +90,12 @@ namespace QuLearning
             if(dataGridView1.ColumnCount == 3)
             {
                 ShowPDF formShowPDF = new ShowPDF(dataGridView1.Rows[ht.RowIndex].Cells[2].Value.ToString(), dataGridView1.Rows[ht.RowIndex].Cells[1].Value.ToString(), 1);
-                if (!formShowPDF.IsDisposed)
-                    formShowPDF.Show(this);
+                formShowPDF.Show(this);
             }
             else if(dataGridView1.ColumnCount == 4)
             {
                 ShowPDF formShowPDF = new ShowPDF(dataGridView1.Rows[ht.RowIndex].Cells[3].Value.ToString(), dataGridView1.Rows[ht.RowIndex].Cells[0].Value.ToString(), Convert.ToInt32(dataGridView1.Rows[ht.RowIndex].Cells[2].Value));
-                if (!formShowPDF.IsDisposed)
-                    formShowPDF.Show(this);
+                formShowPDF.Show(this);
             }
         }
 
