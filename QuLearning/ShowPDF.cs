@@ -28,13 +28,6 @@ namespace QuLearning
             }
 
             this.Text = title;
-
-            //PDFReader.setShowToolbar(false);
-            //PDFReader.setPageMode("none");
-            //PDFReader.setNamedDest("応用物理");
-            
-
-
         }
     }
 }

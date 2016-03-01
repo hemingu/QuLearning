@@ -12,8 +12,6 @@ using System.Linq;
 
 namespace QuLearning
 {
-
-
     public partial class FormQM : Form
     {
         private List<Lecture> lecture = new List<Lecture>();

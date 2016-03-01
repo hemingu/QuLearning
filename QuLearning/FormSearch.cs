@@ -15,7 +15,7 @@ namespace QuLearning
 
         private void buttonIndex_Click(object sender, EventArgs e)
         {
-            char[] delimiterChars = {' ', '　'};
+            char[] delimiterChars = { ' ', '　' };
             string[] searchWords = textBox1.Text.Split(delimiterChars);
             string sql = @"select 用語,記事名,ページ,PDFパス from 索引 inner join Lecture on 索引.lectureid = Lecture.rowid where 用語 like";
             int size = searchWords.Length;
@@ -30,13 +30,13 @@ namespace QuLearning
 #if DEBUG
             sum = 1;
 #endif
-            if(sum == 0)
+            if (sum == 0)
             {
                 return;
             }
 
             sql += string.Format("'%{0}%' ", searchWords[0]);
-            for(int i=1;i<size;i++)
+            for (int i = 1; i < size; i++)
             {
                 sql += string.Format("and 用語 like '%{0}%' ", searchWords[i]);
             }
@@ -60,7 +60,7 @@ namespace QuLearning
                 MessageBox.Show("SQLエラー", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+
             //PDFパスの列を非表示
             dataGridView1.Columns[3].Visible = false;
         }
@@ -79,23 +79,29 @@ namespace QuLearning
 
             //PDFパスの列番号を取得
             int pathColumn;
-            for(pathColumn=0; pathColumn < dataGridView1.ColumnCount; pathColumn++)
+            for (pathColumn = 0; pathColumn < dataGridView1.ColumnCount; pathColumn++)
             {
                 if (dataGridView1.Columns[pathColumn].HeaderCell.Value.ToString() == "PDFパス")
                     break;
             }
 
-            
+
             //dataGridViewの列数を取得 3列なら記事名検索 4列なら索引検索
-            if(dataGridView1.ColumnCount == 3)
+            if (dataGridView1.ColumnCount == 3)
             {
                 ShowPDF formShowPDF = new ShowPDF(dataGridView1.Rows[ht.RowIndex].Cells[2].Value.ToString(), dataGridView1.Rows[ht.RowIndex].Cells[1].Value.ToString(), 1);
                 formShowPDF.Show(this);
+
             }
-            else if(dataGridView1.ColumnCount == 4)
+            else if (dataGridView1.ColumnCount == 4)
             {
                 ShowPDF formShowPDF = new ShowPDF(dataGridView1.Rows[ht.RowIndex].Cells[3].Value.ToString(), dataGridView1.Rows[ht.RowIndex].Cells[0].Value.ToString(), Convert.ToInt32(dataGridView1.Rows[ht.RowIndex].Cells[2].Value));
                 formShowPDF.Show(this);
+                formShowPDF.Select();
+                //SendKeys.Send("^(f)");
+                //SendKeys.Flush();
+                //SendKeys.Send(dataGridView1.Rows[ht.RowIndex].Cells[0].Value.ToString());
+                //SendKeys.Flush();
             }
         }
 
@@ -117,9 +123,9 @@ namespace QuLearning
             }
 #endif
             string sqlWords = "";
-            foreach(string words in searchWords)
+            foreach (string words in searchWords)
             {
-                sqlWords += string.Format("and 記事名 like '%{0}%' ",words);
+                sqlWords += string.Format("and 記事名 like '%{0}%' ", words);
             }
             string sql = "select 種別,記事名,PDFパス from Lecture where 種別 not like 'シラバス' " + sqlWords + "union "
                 + "select 種別,記事名,PDFパス from 前期量子論 where 種別 not like 'シラバス' " + sqlWords + "union "

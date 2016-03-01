@@ -164,7 +164,13 @@
     <None Include="PDF\Lecture\MatrixMechanics.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="PDF\Lecture\QI.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="PDF\Lecture\QuantumGate.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="PDF\Lecture\Shor%27sAlgorithm.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="PDF\Lecture\SimpleSystem.pdf">
