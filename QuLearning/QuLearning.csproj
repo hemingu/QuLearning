@@ -191,7 +191,9 @@
     <None Include="PDF\Terms\Gaussian integral.pdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="PDF\Terms\PhotElectric-Compton.pdf" />
+    <None Include="PDF\Terms\PhotElectric-Compton.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
